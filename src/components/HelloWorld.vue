@@ -4,7 +4,7 @@ import { ref, inject } from "vue";
 defineProps<{ msg: string }>();
 
 const count = ref(0);
-console.log(count.value);
+console.log(count.value, "count");
 
 const name = inject("parentName");
 console.log(name);
