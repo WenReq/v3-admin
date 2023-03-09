@@ -1,0 +1,27 @@
+# @see: https://editorconfig.org
+
+# 已经是顶层配置文件，不必继续向上搜索
+root = true
+
+# 表示所有文件适用
+[*]
+# 编码字符集
+charset = utf-8
+# 缩进风格是空格
+indent_style = tab
+# 一个缩进占用两个空格，一个Tab占用2列
+indent_size = 2
+# 换行符 lf
+end_of_line = lf
+# 文件以一个空白行结尾
+insert_final_newline = true
+# 去除行首的任意空白字符
+trim_trailing_whitespace = true
+
+# 表示仅 md 文件适用以下规则
+[*.md]
+# 最大行长度
+max_line_length = 130
+insert_final_newline = false
+# 关闭末尾空格修剪
+trim_trailing_whitespace = false
