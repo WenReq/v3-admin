@@ -7,8 +7,9 @@ export default {
 
 <script setup lang="ts">
 import { ref, provide } from "vue";
-import { useMouse, useCounter } from "@vueuse/core";
+import { useMouse, useCounter, useMagicKeys } from "@vueuse/core";
 import HelloWorld from "@/components/HelloWorld.vue";
+const { current } = useMagicKeys();
 
 const { x, y } = useMouse();
 const { count, inc, dec } = useCounter();
@@ -29,6 +30,7 @@ provide("parentName", "wen");
 		</a>
 
 		<h3>Mouse: {{ x }} x {{ y }}</h3>
+		<h3>current: {{ current }}</h3>
 		<h3>
 			Counter: {{ count }}
 			<a @click="inc()" style="margin-right: 10px">+</a>

@@ -10,7 +10,7 @@ charset = utf-8
 # 缩进风格是空格
 indent_style = tab
 # 一个缩进占用两个空格，一个Tab占用2列
-indent_size = 2
+indent_size = 4
 # 换行符 lf
 end_of_line = lf
 # 文件以一个空白行结尾
