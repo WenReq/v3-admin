@@ -21,6 +21,10 @@ function increment() {
 }
 
 provide("parentName", "wen");
+
+const getProp = (val: string) => {
+	console.log("val", val);
+};
 </script>
 
 <template>
@@ -39,7 +43,7 @@ provide("parentName", "wen");
 
 		<button @click="increment">{{ countNumber }}</button>
 
-		<HelloWorld :msg="'propsValue'" class="attrClass">slot内容</HelloWorld>
+		<HelloWorld :msg="'propsValue'" :arr="[1, 2, 3]" @on-click="getProp" class="attrClass">slot内容</HelloWorld>
 	</div>
 </template>
 
@@ -50,6 +54,7 @@ provide("parentName", "wen");
 	will-change: filter;
 	transition: filter 300ms;
 }
+
 .logo.vue:hover {
 	filter: drop-shadow(0 0 2em #42b883aa);
 }

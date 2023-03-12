@@ -4,7 +4,8 @@ import App from "./App.vue";
 import router from "@/routers";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-
+// 导入Unocss
+import "uno.css";
 // 创建vue实例
 const app = createApp(App);
 
