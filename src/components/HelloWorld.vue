@@ -50,7 +50,7 @@ const send = () => {
 		cursor="pointer"
 		@click="send()"
 	>
-		这是一个按钮
+		这是第二个按钮
 	</button>
 	<div class="i-ic-baseline-add-circle text-3xl bg-green-500"></div>
 </template>
