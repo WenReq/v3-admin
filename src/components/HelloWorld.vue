@@ -37,7 +37,7 @@ const send = () => {
 		class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700 border-none cursor-pointer"
 		@click="send()"
 	>
-		这是一个按钮
+		这是第一个按钮
 	</button>
 	<button
 		p="y-2 x-4"
