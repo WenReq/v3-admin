@@ -30,7 +30,7 @@ export default defineConfig({
 		// 设置 https 代理
 		proxy: {
 			"/api": {
-				target: "your https address",
+				target: "http://localhost:3000",
 				changeOrigin: true,
 				rewrite: path => path.replace(/^\/api/, "")
 			}

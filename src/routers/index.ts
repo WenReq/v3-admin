@@ -17,9 +17,6 @@ Object.keys(metaRouters).forEach(item => {
 	}); */
 });
 
-debugger;
-console.log(routerArray);
-
 const routes: RouteRecordRaw[] = [
 	{
 		// 重定向到 login
@@ -35,7 +32,7 @@ const routes: RouteRecordRaw[] = [
 			keepAlive: true,
 			requireAuth: false
 		},
-		component: () => import("@/pages/login.vue")
+		component: () => import("@/views/login/index.vue")
 	},
 	...errorRouter,
 	{

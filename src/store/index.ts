@@ -1,6 +1,5 @@
-import { defineStore } from "pinia";
+import { defineStore, createPinia } from "pinia";
 import { GlobalState } from "./interface";
-import { createPinia } from "pinia";
 import piniaPersist from "pinia-plugin-persist";
 import piniaPersistConfig from "@/config/piniaPersist";
 
