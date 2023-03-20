@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import errorRouter from "./modules/error";
+import homeRouter from "./modules/home";
 
 // * 导入所有的 router
 const metaRouters = import.meta.glob("./modules/*.ts", { import: "default", eager: true });
@@ -35,6 +36,7 @@ const routes: RouteRecordRaw[] = [
 		component: () => import("@/views/login/index.vue")
 	},
 	...errorRouter,
+	...homeRouter,
 	{
 		// 找不到路由重定向到 404 页面
 		path: "/:pathMatch(.*)",

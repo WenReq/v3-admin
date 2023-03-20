@@ -80,6 +80,18 @@
 					margin-bottom: 40px;
 				}
 
+				.code-block {
+					display: flex;
+					width: -webkit-fill-available;
+					.code-input {
+						width: 100%;
+					}
+					.code-part {
+						display: flex;
+						cursor: pointer;
+					}
+				}
+
 				.login-btn {
 					display: flex;
 					justify-content: space-between;

@@ -9,6 +9,23 @@ export interface ResultData<T = any> extends Result {
 	data?: T;
 }
 
+// * 登录响应参数(包含data)
+export interface LoginResData {
+	data: {
+		token: string;
+	};
+	message: string;
+	success: boolean;
+	status: number;
+}
+
+/*
+data:{token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkN…zI5fQ.bgwTahKOXwekWjHU57MIpbqfYQA-VOvBOCm2JkiJnzU'},
+message:"成功",
+status:200,
+success:true,
+*/
+
 // * 分页响应参数
 export interface ResPage<T> {
 	datalist: T[];
@@ -28,6 +45,7 @@ export namespace Login {
 	export interface ReqLoginForm {
 		username: string;
 		password: string;
+		code: string;
 	}
 	export interface ResLogin {
 		access_token: string;

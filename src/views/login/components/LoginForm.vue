@@ -1,18 +1,28 @@
 <template>
 	<el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" size="large">
 		<el-form-item prop="username">
-			<el-input v-model="loginForm.username" placeholder="用户名">
+			<el-input v-model="loginForm.username" placeholder="用户名" clearable>
 				<template #prefix>
 					<el-icon class="el-input__icon"><user /></el-icon>
 				</template>
 			</el-input>
 		</el-form-item>
 		<el-form-item prop="password">
-			<el-input type="password" show-password v-model="loginForm.password" placeholder="密码">
+			<el-input type="password" show-password v-model="loginForm.password" placeholder="密码" clearable>
 				<template #prefix>
 					<el-icon class="el-input__icon"><lock /></el-icon>
 				</template>
 			</el-input>
+		</el-form-item>
+		<el-form-item prop="code">
+			<div class="code-block">
+				<el-input v-model="loginForm.code" placeholder="验证码" class="code-input" clearable>
+					<template #prefix>
+						<el-icon class="el-input__icon"><ChromeFilled /></el-icon>
+					</template>
+				</el-input>
+				<div class="code-part" v-html="imgUrl" @click="getCode"></div>
+			</div>
 		</el-form-item>
 	</el-form>
 	<div class="login-btn">
@@ -32,27 +42,36 @@ import type { FormRules, FormInstance } from "element-plus";
 import { loginApi, getCodeApi } from "@/api/modules/login";
 import { GlobalStore } from "@/store";
 
+const imgUrl = ref<string>("");
+
 onMounted(async () => {
-	const res = await await getCodeApi();
-	console.log(res);
+	getCode();
 });
+
+const getCode = async () => {
+	const res = await await getCodeApi();
+	imgUrl.value = res.data as string;
+};
 
 const globalStore = GlobalStore();
 
 const loginFormRef = ref<FormInstance>();
 const loginRules = reactive<FormRules>({
 	username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-	password: [{ required: true, message: "请输入密码", trigger: "blur" }]
+	password: [{ required: true, message: "请输入密码", trigger: "blur" }],
+	code: [{ required: true, message: "请输入验证码", trigger: "blur" }]
 });
 
 // 登录表单数据
 const loginForm = reactive<Login.ReqLoginForm>({
 	username: "admin",
-	password: "123456"
+	password: "123456",
+	code: ""
 });
 const loading = ref<boolean>(false);
 
 const router = useRouter();
+
 // login
 const login = (formEl: FormInstance | undefined) => {
 	if (!formEl) return;
@@ -62,10 +81,12 @@ const login = (formEl: FormInstance | undefined) => {
 			try {
 				let requestLoginForm: Login.ReqLoginForm = {
 					username: loginForm.username,
-					password: loginForm.password
+					password: loginForm.password,
+					code: loginForm.code
 				};
 				const res = await loginApi(requestLoginForm);
-				const token = (res as any).data!.access_token;
+				debugger;
+				const token = (res as any).data!.token;
 				globalStore.setToken(token);
 				ElMessage.success("登录成功！");
 				router.push({ name: "home" });
