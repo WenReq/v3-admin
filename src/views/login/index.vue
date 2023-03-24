@@ -19,7 +19,7 @@ import LoginForm from "./components/LoginForm.vue";
 				<div class="login-form">
 					<div class="login-logo">
 						<img class="login-icon" src="@/assets/images/logo.svg" />
-						<p class="logo-text">V3 - Admin</p>
+						<p class="logo-text">V3 Admin</p>
 					</div>
 					<!-- :obj="obj" -->
 					<LoginForm ref="loginRef" />

@@ -1,13 +1,21 @@
 import { ElMessage } from "element-plus";
 
+interface ErrorData {
+	message: string;
+	name: string;
+	response: string;
+	status: number;
+}
+
 /**
  * @description: 校验状态码
- * @param {number} status
+ * @param {object} data
  */
-export const checkStatus = (status: number): void => {
+export const checkStatus = (data: ErrorData): void => {
+	const status = data.status;
 	switch (status) {
 		case 400:
-			ElMessage.error("请求失败！请您稍后重试");
+			ElMessage.error(data.message);
 			break;
 		case 401:
 			ElMessage.error("登录失效！请您重新登录");

@@ -6,10 +6,8 @@ withDefaults(defineProps<{ msg: string; arr: number[] }>(), {
 	arr: () => [666]
 });
 const count = ref(0);
-console.log(count.value, "count");
 
 const name = inject("parentName");
-console.log(name);
 
 // 在模板中启用 v-focus
 const vFocus = {

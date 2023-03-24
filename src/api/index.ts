@@ -80,7 +80,7 @@ class RequestHttp {
 				const { response } = error;
 				tryHideFullScreenLoading();
 				// 根据响应的错误状态码，做不同的处理
-				if (response) return checkStatus(response.status);
+				if (response) return checkStatus((response.data as any).data);
 				// 服务器结果都没有返回(可能服务器错误可能客户端断网)，断网处理:可以跳转到断网页面
 				if (!window.navigator.onLine) return router.replace({ path: "/500" });
 				return Promise.reject(error);

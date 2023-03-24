@@ -85,11 +85,12 @@ const login = (formEl: FormInstance | undefined) => {
 					code: loginForm.code
 				};
 				const res = await loginApi(requestLoginForm);
-				debugger;
-				const token = (res as any).data!.token;
-				globalStore.setToken(token);
-				ElMessage.success("登录成功！");
-				router.push({ name: "home" });
+				if (res) {
+					const token = (res as any).data!.token;
+					globalStore.setToken(token);
+					ElMessage.success("登录成功！");
+					router.push({ name: "home" });
+				}
 			} finally {
 				loading.value = false;
 			}
