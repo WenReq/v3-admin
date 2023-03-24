@@ -32,7 +32,7 @@
 		</el-button>
 	</div>
 </template>
-<script setup lang="ts">
+<script setup lang="ts" name="loginForm">
 import { ref, reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { Login } from "@/api/interface";
@@ -90,6 +90,10 @@ const login = (formEl: FormInstance | undefined) => {
 					globalStore.setToken(token);
 					ElMessage.success("登录成功！");
 					router.push({ name: "home" });
+				} else {
+					// 验证码不匹配时，从新请求新的验证码。并清空，之前输入的验证码。
+					getCode();
+					loginForm.code = "";
 				}
 			} finally {
 				loading.value = false;

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref, inject } from "vue";
+import { inject } from "vue";
 
 // ts中用widthDefaults来设置默认参数
 withDefaults(defineProps<{ msg: string; arr: number[] }>(), {
 	arr: () => [666]
 });
-const count = ref(0);
+// const count = ref(0);
 
 const name = inject("parentName");
 

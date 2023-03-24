@@ -11,7 +11,7 @@ export default defineConfig({
 	resolve: {
 		//设置别名
 		alias: {
-			"@": path.resolve(__dirname, "src")
+			"@": path.resolve(__dirname, "./src")
 		}
 	},
 	plugins: [
@@ -22,11 +22,10 @@ export default defineConfig({
 		})
 	],
 	server: {
+		host: "0.0.0.0", // 服务器主机名，如果允许外部访问，可设置为 "0.0.0.0"
 		port: 8080, //启动端口
-		hmr: {
-			host: "127.0.0.1",
-			port: 8080
-		},
+		open: true,
+		cors: true,
 		// 设置 https 代理
 		proxy: {
 			"/api": {
