@@ -1,5 +1,6 @@
 <script setup lang="ts" name="login">
 import LoginForm from "./components/LoginForm.vue";
+import SwitchDark from "@/components/SwitchDark/index.vue";
 // import { Login } from "@/api/interface/index";
 // import { reactive } from "vue";
 
@@ -10,9 +11,10 @@ import LoginForm from "./components/LoginForm.vue";
 </script>
 <template>
 	<div class="login-container flx-center">
+		<SwitchDark class="dark"></SwitchDark>
 		<div class="login-content">
 			<div class="login-left">
-				<img src="@/assets/images/login_left.png" alt="login" />
+				<img src="@/assets/images/login_left1.png" alt="login" />
 			</div>
 			<div class="login-box">
 				<img class="login-img" src="@/assets/images/form_icon.png" />

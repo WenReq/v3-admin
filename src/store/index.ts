@@ -1,5 +1,5 @@
 import { defineStore, createPinia } from "pinia";
-import { GlobalState } from "./interface";
+import { GlobalState, ThemeConfigProp } from "./interface";
 import piniaPersist from "pinia-plugin-persist";
 import piniaPersistConfig from "@/config/piniaPersist";
 
@@ -16,13 +16,22 @@ export const GlobalStore = defineStore({
 		// element组件大小
 		assemblySize: "default",
 		// language
-		language: ""
-		// themeConfig
+		language: "",
+		themeConfig: {
+			// 默认 primary 颜色主题
+			primary: "#409eff",
+			// 是否开启深色模式
+			isDark: false
+		}
 	}),
 	actions: {
 		// setToken
 		setToken(token: string) {
 			this.token = token;
+		},
+		// setThemeConfig
+		setThemeConfig(themeConfig: ThemeConfigProp) {
+			this.themeConfig = themeConfig;
 		}
 	},
 	persist: piniaPersistConfig("GlobalState")

@@ -3,6 +3,10 @@ import App from "./App.vue";
 import router from "@/routers";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
+// element dark
+import "element-plus/theme-chalk/dark/css-vars.css";
+// custom element dark
+import "@/styles/element-dark.scss";
 import * as Icons from "@element-plus/icons-vue";
 // 导入Unocss
 import "uno.css";
