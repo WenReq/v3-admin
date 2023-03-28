@@ -1,4 +1,5 @@
 <script setup name="Layout">
+import cacheRouter from "@/routers/cacheRouter";
 import Topbar from "./components/Topbar/index.vue";
 import Header from "./components/Header/index.vue";
 import MainSidebar from "./components/MainSidebar/index.vue";
@@ -22,7 +23,7 @@ import SubSidebar from "./components/SubSidebar/index.vue";
 						<div class="main">
 							<RouterView v-slot="{ Component, route }">
 								<Transition name="main" mode="out-in" appear>
-									<keep-alive>
+									<keep-alive :include="cacheRouter">
 										<component :is="Component" :key="route.fullPath"></component>
 									</keep-alive>
 								</Transition>
