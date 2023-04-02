@@ -14,6 +14,8 @@ import "uno.css";
 import "@/styles/reset.scss";
 // CSS common style sheet
 import "@/styles/common.scss";
+// iconfont css
+import "@/assets/iconfont/iconfont.scss";
 // pinia store
 import pinia from "@/store/index";
 

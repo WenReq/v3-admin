@@ -1,14 +1,14 @@
 <template>
 	<el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" size="large">
 		<el-form-item prop="username">
-			<el-input v-model="loginForm.username" placeholder="用户名" clearable>
+			<el-input v-model="loginForm.username" placeholder="用户名：admin" clearable>
 				<template #prefix>
 					<el-icon class="el-input__icon"><user /></el-icon>
 				</template>
 			</el-input>
 		</el-form-item>
 		<el-form-item prop="password">
-			<el-input type="password" show-password v-model="loginForm.password" placeholder="密码" clearable>
+			<el-input type="password" show-password v-model="loginForm.password" placeholder="密码：123456" clearable>
 				<template #prefix>
 					<el-icon class="el-input__icon"><lock /></el-icon>
 				</template>
@@ -36,11 +36,12 @@
 import { ref, reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { Login } from "@/api/interface";
-import { ElMessage } from "element-plus";
+import { ElNotification } from "element-plus";
 import { CircleClose, UserFilled } from "@element-plus/icons-vue";
 import type { FormRules, FormInstance } from "element-plus";
 import { loginApi, getCodeApi } from "@/api/modules/login";
 import { GlobalStore } from "@/store";
+import { getTimeState } from "@/utils/utils";
 
 const imgUrl = ref<string>("");
 
@@ -64,8 +65,8 @@ const loginRules = reactive<FormRules>({
 
 // 登录表单数据
 const loginForm = reactive<Login.ReqLoginForm>({
-	username: "admin",
-	password: "123456",
+	username: "",
+	password: "",
 	code: ""
 });
 const loading = ref<boolean>(false);
@@ -88,8 +89,13 @@ const login = (formEl: FormInstance | undefined) => {
 				if (res) {
 					const token = (res as any).data!.token;
 					globalStore.setToken(token);
-					ElMessage.success("登录成功！");
 					router.push({ name: "home" });
+					ElNotification({
+						title: getTimeState(),
+						message: "欢迎登录 V3-Admin",
+						type: "success",
+						duration: 3000
+					});
 				} else {
 					// 验证码不匹配时，从新请求新的验证码。并清空，之前输入的验证码。
 					getCode();
