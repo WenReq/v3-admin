@@ -1,6 +1,6 @@
-<script setup name="Layout">
+<script setup name="Layout" lang="ts">
 import cacheRouter from "@/routers/cacheRouter";
-import Topbar from "./components/Topbar/index.vue";
+import TopBar from "./components/TopBar/index.vue";
 import Header from "./components/Header/index.vue";
 import MainSidebar from "./components/MainSidebar/index.vue";
 import SubSidebar from "./components/SubSidebar/index.vue";
@@ -19,7 +19,7 @@ import SubSidebar from "./components/SubSidebar/index.vue";
 				</el-aside>
 				<el-container class="main-container">
 					<el-main>
-						<Topbar bg-red-300 />
+						<TopBar bg-red-300 />
 						<div class="main">
 							<RouterView v-slot="{ Component, route }">
 								<Transition name="main" mode="out-in" appear>
