@@ -1,7 +1,11 @@
 <template>
-	<RouterLink to="/test/index">首页跳测试页</RouterLink>
+	<div class="home card">
+		<img class="home-bg" src="@/assets/images/welcome.png" alt="welcome" />
+	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts" name="home"></script>
 
-<style></style>
+<style scoped lang="scss">
+@import "./index.scss";
+</style>

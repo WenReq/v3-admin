@@ -1,37 +1,45 @@
+// 导入 Unocss
+import "uno.css";
 import { createApp } from "vue";
 import App from "./App.vue";
-import router from "@/routers";
-import ElementPlus from "element-plus";
-import "element-plus/dist/index.css";
-// element dark
-import "element-plus/theme-chalk/dark/css-vars.css";
-// custom element dark
-import "@/styles/element-dark.scss";
-import * as Icons from "@element-plus/icons-vue";
-// 导入Unocss
-import "uno.css";
 // reset style sheet
 import "@/styles/reset.scss";
 // CSS common style sheet
 import "@/styles/common.scss";
 // iconfont css
 import "@/assets/iconfont/iconfont.scss";
+// font css
+import "@/assets/fonts/font.scss";
+// element css
+import "element-plus/dist/index.css";
+// element dark css
+import "element-plus/theme-chalk/dark/css-vars.css";
+// custom element dark css
+import "@/styles/element-dark.scss";
+// custom element css
+import "@/styles/element.scss";
+// svg icons
+import "virtual:svg-icons-register";
+// element plus
+import ElementPlus from "element-plus";
+// element icons
+import * as Icons from "@element-plus/icons-vue";
+// custom directives
+import directives from "@/directives/index";
+// vue Router
+import router from "@/routers";
 // pinia store
-import pinia from "@/store/index";
+import pinia from "@/stores";
+// errorHandler
+import errorHandler from "@/utils/errorHandler";
 
-// 创建vue实例
 const app = createApp(App);
 
-// 应用级错误处理
-app.config.errorHandler = (err, instance, info) => {
-	// 向追踪服务报告错误
-	console.log(err, instance, info);
-};
+app.config.errorHandler = errorHandler;
 
-// 注册element Icons组件
+// register the element Icons component
 Object.keys(Icons).forEach(key => {
 	app.component(key, Icons[key as keyof typeof Icons]);
 });
 
-// 挂载实例
-app.use(router).use(pinia).use(ElementPlus).mount("#app");
+app.use(ElementPlus).use(directives).use(router).use(pinia).mount("#app");

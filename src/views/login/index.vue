@@ -1,35 +1,25 @@
-<script setup lang="ts" name="login">
-import LoginForm from "./components/LoginForm.vue";
-import SwitchDark from "@/components/SwitchDark/index.vue";
-// import { Login } from "@/api/interface/index";
-// import { reactive } from "vue";
-
-// const obj = reactive<Login.ReqLoginForm>({
-// 	username: "admin",
-// 	password: "123456"
-// });
-</script>
 <template>
 	<div class="login-container flx-center">
-		<SwitchDark class="dark"></SwitchDark>
-		<div class="login-content">
+		<div class="login-box">
+			<SwitchDark class="dark" />
 			<div class="login-left">
-				<img src="@/assets/images/login_left1.png" alt="login" />
+				<img class="login-left-img" src="@/assets/images/login_left.png" alt="login" />
 			</div>
-			<div class="login-box">
-				<img class="login-img" src="@/assets/images/form_icon.png" />
-				<div class="login-form">
-					<div class="login-logo">
-						<img class="login-icon" src="@/assets/images/logo.svg" />
-						<p class="logo-text">V3 Admin</p>
-					</div>
-					<!-- :obj="obj" -->
-					<LoginForm ref="loginRef" />
+			<div class="login-form">
+				<div class="login-logo">
+					<img class="login-icon" src="@/assets/images/logo.svg" alt="" />
+					<h2 class="logo-text">V3-Admin</h2>
 				</div>
+				<LoginForm />
 			</div>
 		</div>
 	</div>
 </template>
+
+<script setup lang="ts" name="login">
+import LoginForm from "./components/LoginForm.vue";
+import SwitchDark from "@/components/SwitchDark/index.vue";
+</script>
 
 <style scoped lang="scss">
 @import "./index.scss";

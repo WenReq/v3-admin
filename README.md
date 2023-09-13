@@ -1,34 +1,61 @@
-# 项目名称 v3-admin
+# 项目名称 v3-admin-template
 
-该项目是用于演示如何使用 pnpm 进行依赖管理和开发的示例。
+这是一个极简的 v3-Admin 管理后台。它只包含了 ElementPlus & axios & iconfont & permission control & lint && cz-git && 主题布局切换，这些搭建后台必要的东西。
 
 ## 安装依赖
 
-在项目根目录下执行以下命令以安装项目所需的依赖项：
+- **Clone：**
+
+```text
+# GitHub
+git clone https://github.com/WenReq/v3-admin.git
+```
+
+- **Install：**
 
 ```text
 pnpm install
 ```
 
-## 运行项目
-
-在项目根目录下执行以下命令以启动开发服务器：
+- **Run：**
 
 ```text
-pnpm run dev
+pnpm dev
+pnpm serve
 ```
 
-运行成功后，您可以在浏览器中访问 http://localhost:8080 来查看项目运行效果。
+- **Build：**
 
-## 其他命令
+```text
+# 开发环境
+pnpm build:dev
 
-除了上述命令，该项目还提供了其他几个命令：
+# 测试环境
+pnpm build:test
 
-- `pnpm build`: 构建项目并生成静态资源文件。
-- `pnpm lint`: 对项目进行代码检查和格式化。
-- `pnpm test`: 运行项目的测试用例。
+# 生产环境
+pnpm build:pro
+```
 
-有关每个命令的详细信息，请查看项目的 package.json 文件中的 "scripts" 部分。
+- **Lint：**
+
+```text
+# eslint 检测代码
+pnpm lint:eslint
+
+# prettier 格式化代码
+pnpm lint:prettier
+
+# stylelint 格式化样式
+pnpm lint:stylelint
+```
+
+- **commit：**
+
+```text
+# 提交代码（提交前会自动执行 lint:lint-staged 命令）
+pnpm commit
+```
 
 ## 贡献指南
 

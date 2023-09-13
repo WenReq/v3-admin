@@ -1,31 +1,12 @@
 <template>
-	<el-switch
-		v-model="themeConfig.isDark"
-		@change="onAddDarkChange"
-		inline-prompt
-		active-color="#dcdfe6"
-		:active-icon="Sunny"
-		:inactive-icon="Moon"
-	/>
+	<el-switch v-model="globalStore.isDark" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" @change="switchDark" />
 </template>
 
-<script setup lang="ts" name="switchDark">
+<script setup lang="ts" name="SwitchDark">
+import { useTheme } from "@/hooks/useTheme";
+import { useGlobalStore } from "@/stores/modules/global";
 import { Sunny, Moon } from "@element-plus/icons-vue";
-import { computed } from "vue";
-import { GlobalStore } from "@/store";
-import { useDarkFn } from "@/hooks/useDark";
 
-const globalStore = GlobalStore();
-
-const { switchTheme } = useDarkFn();
-
-const themeConfig = computed(() => globalStore.themeConfig);
-
-const onAddDarkChange = (value: boolean) => {
-	globalStore.setThemeConfig({
-		...themeConfig.value,
-		isDark: value
-	});
-	switchTheme();
-};
+const { switchDark } = useTheme();
+const globalStore = useGlobalStore();
 </script>
