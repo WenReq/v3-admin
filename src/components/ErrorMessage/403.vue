@@ -4,14 +4,14 @@
 		<div class="not-detail">
 			<h2>403</h2>
 			<h4>抱歉，您无权限访问该页面~🙅‍♂️🙅‍♀️</h4>
-			<!-- TODO: 返回首页的逻辑事件；使用 store 中的方法；@click="$event => tabStore.goHome()" -->
-			<el-button type="primary">返回首页</el-button>
+			<el-button type="primary" @click="router.back">返回上一页</el-button>
 		</div>
 	</div>
 </template>
 
-<script setup lang="ts">
-// TODO: 引入tabs相关的 store; const tabStore = TabStore();
+<script setup lang="ts" name="403">
+import { useRouter } from "vue-router";
+const router = useRouter();
 </script>
 
 <style scoped lang="scss">
