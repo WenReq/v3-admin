@@ -13,6 +13,7 @@ import { headerTheme } from "@/styles/theme/header";
  * */
 export const useTheme = () => {
 	const globalStore = useGlobalStore();
+	// 为了从 Store 中提取属性同时保持其响应式，您需要使用storeToRefs()。 它将为任何响应式属性创建 refs。
 	const { primary, isDark, isGrey, isWeak, layout, asideInverted, headerInverted } = storeToRefs(globalStore);
 
 	// 切换暗黑模式 ==> 并带修改主题颜色、侧边栏、头部颜色

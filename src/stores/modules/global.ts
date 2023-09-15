@@ -4,6 +4,7 @@ import { DEFAULT_PRIMARY } from "@/config";
 import piniaPersistConfig from "@/config/piniaPersist";
 
 export const useGlobalStore = defineStore({
+	// 这个 name，也称为 id，是必要的，Pinia 使用它来将 store 连接到 devtools。
 	id: "v3-global",
 	// 修改默认值之后，需清除 localStorage 数据
 	state: (): GlobalState => ({

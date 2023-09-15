@@ -14,6 +14,7 @@ export const useAuthStore = defineStore({
 		routeName: ""
 	}),
 	getters: {
+		// 请注意，store 是一个用 reactive 包裹的对象，这意味着，不需要在 getter 之后写 .value。
 		// 按钮权限列表
 		authButtonListGet: state => state.authButtonList,
 		// 菜单权限列表 ==> 这里的菜单没有经过任何处理

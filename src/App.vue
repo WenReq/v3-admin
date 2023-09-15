@@ -14,6 +14,7 @@ import { useGlobalStore } from "@/stores/modules/global";
 import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 import en from "element-plus/dist/locale/en.mjs";
 
+// 请注意，store 是一个用 reactive 包裹的对象，这意味着，不需要在 getter 之后写 .value，但是，就像setup 中的props 一样，我们不能对其进行解构，因为它会破坏响应式。
 const globalStore = useGlobalStore();
 
 // init theme

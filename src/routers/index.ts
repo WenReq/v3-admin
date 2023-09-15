@@ -33,6 +33,7 @@ const router = createRouter({
  * @description 路由拦截 beforeEach
  * */
 router.beforeEach(async (to, from, next) => {
+	// 路由已安装，pinia 也将安装
 	const userStore = useUserStore();
 	const authStore = useAuthStore();
 

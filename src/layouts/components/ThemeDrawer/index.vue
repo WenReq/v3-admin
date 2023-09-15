@@ -154,7 +154,7 @@ const {
 	tabs,
 	tabsIcon,
 	footer
-} = storeToRefs(globalStore);
+} = storeToRefs(globalStore); // 为了从 Store 中提取属性同时保持其响应式，您需要使用storeToRefs()。 它将为任何响应式属性创建 refs。
 
 // 预定义主题颜色
 const colorList = [
