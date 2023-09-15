@@ -1,5 +1,3 @@
-// 导入 Unocss
-import "uno.css";
 import { createApp } from "vue";
 import App from "./App.vue";
 // reset style sheet
@@ -18,6 +16,8 @@ import "element-plus/theme-chalk/dark/css-vars.css";
 import "@/styles/element-dark.scss";
 // custom element css
 import "@/styles/element.scss";
+// 导入 uno css
+import "uno.css";
 // svg icons
 import "virtual:svg-icons-register";
 // element plus
@@ -35,6 +35,7 @@ import errorHandler from "@/utils/errorHandler";
 
 const app = createApp(App);
 
+// 用于为应用内抛出的未捕获错误指定一个全局处理函数。
 app.config.errorHandler = errorHandler;
 
 // register the element Icons component

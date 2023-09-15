@@ -42,6 +42,11 @@ export const initDynamicRouter = async () => {
 			if (item.meta.isFull) {
 				router.addRoute(item as unknown as RouteRecordRaw);
 			} else {
+				/**
+				 * addRoute(parentName, route): () => void
+				 * parentName: route 应该被加入到的父级路由记录
+				 * route: 要加入的路由记录
+				 */
 				router.addRoute("layout", item as unknown as RouteRecordRaw);
 			}
 		});

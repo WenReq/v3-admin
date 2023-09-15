@@ -139,6 +139,7 @@ export function getBrowserLang() {
  */
 export function getFlatMenuList(menuList: Menu.MenuOptions[]): Menu.MenuOptions[] {
 	let newMenuList: Menu.MenuOptions[] = JSON.parse(JSON.stringify(menuList));
+	// flatMap() 方法对数组中的每个元素应用给定的回调函数，然后将结果展开一级，返回一个新数组。
 	return newMenuList.flatMap(item => [item, ...(item.children ? getFlatMenuList(item.children) : [])]);
 }
 

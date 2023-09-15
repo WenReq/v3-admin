@@ -1,11 +1,3 @@
-/*
- * @Author: wenreq 294491328@qq.com
- * @Date: 2023-09-13 16:47:24
- * @LastEditors: wenreq 294491328@qq.com
- * @LastEditTime: 2023-09-13 16:48:36
- * @FilePath: /v3-admin/src/styles/theme/header.ts
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import { Theme } from "@/hooks/interface";
 
 export const headerTheme: Record<Theme.ThemeType, { [key: string]: string }> = {
