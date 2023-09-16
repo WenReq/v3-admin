@@ -1,4 +1,5 @@
 <template>
+	<!-- template 中使用不必要的包装元素 -->
 	<suspense>
 		<!-- 具有深层异步依赖的组件 -->
 		<template #default>
@@ -20,6 +21,7 @@ import Loading from "@/components/Loading/index.vue";
 import ThemeDrawer from "./components/ThemeDrawer/index.vue";
 
 const LayoutComponents: Record<LayoutType, Component> = {
+	// Vue3 中需要使用 defineAsyncComponent 来声明异步组件。
 	vertical: defineAsyncComponent(() => import("./LayoutVertical/index.vue")),
 	classic: defineAsyncComponent(() => import("./LayoutClassic/index.vue")),
 	transverse: defineAsyncComponent(() => import("./LayoutTransverse/index.vue")),
