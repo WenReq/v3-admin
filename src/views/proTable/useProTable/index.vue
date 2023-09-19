@@ -25,7 +25,6 @@
 			<!-- usernameHeader -->
 			<template #usernameHeader="scope">
 				<el-button type="primary" @click="ElMessage.success('我是通过作用域插槽渲染的表头')">
-					usernameHeader
 					{{ scope.column.label }}
 				</el-button>
 			</template>
