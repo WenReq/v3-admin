@@ -44,3 +44,5 @@ Object.keys(Icons).forEach(key => {
 });
 
 app.use(ElementPlus).use(directives).use(router).use(pinia).mount("#app");
+
+console.log("11112222");

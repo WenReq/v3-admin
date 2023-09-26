@@ -13,6 +13,10 @@ import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
 import Unocss from "unocss/vite";
 import { presetUno, presetAttributify, presetIcons } from "unocss";
 
+import Inspect from "vite-plugin-inspect";
+import AddLogo from "../plugins/vite-plugin-add-logo";
+import RemoveConsole from "../plugins/vite-plugin-remove-console";
+
 /**
  * 创建 vite 插件
  * @param viteEnv
@@ -20,6 +24,9 @@ import { presetUno, presetAttributify, presetIcons } from "unocss";
 export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOption[])[] => {
 	const { VITE_GLOB_APP_TITLE, VITE_REPORT, VITE_PWA } = viteEnv;
 	return [
+		Inspect(),
+		RemoveConsole(),
+		AddLogo(),
 		vue(),
 		Unocss({
 			// 使用 Unocss
