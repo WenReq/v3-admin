@@ -1,5 +1,6 @@
 <template>
 	<div class="home card">
+		<!-- 首页 -->
 		<img class="home-bg" src="@/assets/images/welcome.png" alt="welcome" />
 	</div>
 </template>
