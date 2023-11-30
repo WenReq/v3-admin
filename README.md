@@ -1,6 +1,6 @@
-# 项目名称 v3-admin-template
+# 项目名称 v3-admin
 
-这是一个极简的 v3-Admin 管理后台。它只包含了 ElementPlus & axios & iconfont & permission control & lint && cz-git && 主题布局切换，这些搭建后台必要的东西。
+template 分支，是一个极简的 v3-Admin 管理后台。它只包含了 ElementPlus & axios & iconfont & permission control & lint && cz-git && 主题布局切换，这些搭建后台必要的东西。
 
 ## 安装依赖
 
